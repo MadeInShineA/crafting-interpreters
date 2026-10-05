@@ -1,2 +1,5 @@
 .direnv/
 jlox/out/
+.zed/
+jlox/.project
+jlox/.classpath
