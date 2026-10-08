@@ -13,16 +13,22 @@ public class Lox {
     static boolean hadError = false;
 
     public static void main(String[] args) throws IOException {
+        // Exit if more than 1 argument is given
         if (args.length > 1) {
             System.out.println("Usage: jlox [script]");
             System.exit(64);
-        } else if (args.length == 1) {
+        }
+        // If 1 argument, run the given file
+        else if (args.length == 1) {
             runFile(args[0]);
-        } else {
+        }
+        // Run an interpreter if no argument
+        else {
             runPrompt();
         }
     }
 
+    // Convert the file to bytes and run it
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
